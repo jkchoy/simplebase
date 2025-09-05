@@ -1,5 +1,155 @@
 /* MAIN CSS */
 
+
+/* -------------------------------------
+
+CSS TABLE OF CONTENTS
+
+
+# GLOBAL
+    # DEFINEGLOBAL VARIABLES (CUSTOM PROPERTIES)
+    # SET GLOBAL COLORS
+    # SET GLOBAL TYPOGRAPHY
+  
+
+    ......
+
+
+# UI COMPONENTS
+    # CARDS
+     
+
+
+
+
+---------------------------------------*/
+
+/* -------------------------------------
+
+        GLOBALS 
+
+----------------------------------------*/
+
+/* SET GLOBAL VARIABLES */
+
+:root {
+
+  /* DEFINE BASE COLORS */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-black: rgba(0, 0, 0, 0.8);
+
+  --color-gray-200: rgba(0, 0, 0, 0.2);
+
+  --color-blue-100: #caf0f8;
+  --color-blue-400: #95d5e8;
+  --color-blue-900: #053854;
+
+  --color-green-100: #d8f3dc;
+  --color-green-400: #90be6d;
+  --color-green-900: #1b4332;
+
+
+
+  /* DEFINE SEMATNTIC COLORS */
+  --color-body-background: var(--color-white);
+  --color-body-text: var(--color-black-80);
+  --color-body-text-dark: var(--color-black);
+
+
+
+  --color-primary: var(--color-blue-400);
+  --color-primary-dark: var(--color-blue-900);
+  --color-primary-light: var(--color-blue-100);
+  --color-secondary: var(--color-green-400);
+
+  /* BORDER */
+
+  --color-border: var(--color-gray-200);
+  --border-radius: 5px;
+  --border-thickness: .5px;
+
+
+  /* SIZING UNITS */
+  --units-2xs: 0.25em;
+  --units-2xs: 0.5em;
+  --units-2xs: 1em;
+  --units-2xs: 2em;
+  --units-2xs: 3em;
+  --units-2xs: 4em;
+  --units-2xs: 6em;
+
+
+  /* GLOBAL FONTS */
+  --font-body: ui-system, Helvetica, Arial, sans-serif;
+  --font-heading: Gerogia, Times, 'Times New Roman', serif;
+
+
+}
+
+
+/* SET GLOBAL COLORS */
+
 body {
-  background-color: aquamarine;
+  background-color: var(--color-body-background);
+  color: var(--color-body-text);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-body-text-dark);
+
+}
+
+
+
+/* LINKS */
+
+a {
+  color: var(--color-primary);
+}
+
+a:hover {
+  color: var(--color-green-400);
+
+}
+
+
+/* GLOBAL TYPOGRAPHY */
+body {
+  font-family: var(--font-body);
+  font-size: 100%;
+  line-height: 1.4;
+
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+}
+
+
+/* -------------------------------------
+
+UI COMPONENTS 
+
+----------------------------------------*/
+
+/* CARDS */
+
+.card {
+  border: var(--border-thickness) solid var(--color-border);
+  display: inline-block;
+  padding: var(--units-s);
+  border-radius: var(--border-radius);
+
+}
+
+.color-swatch {
+  --_swatch-color: grey;
+  background-color: var(--_swatch-color);
+  width: 150px;
+  height: 150px;
 }
