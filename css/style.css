@@ -145,6 +145,7 @@ UI COMPONENTS
   padding: var(--units-s);
   border-radius: var(--border-radius);
 
+
 }
 
 .color-swatch {
@@ -152,4 +153,5 @@ UI COMPONENTS
   background-color: var(--_swatch-color);
   width: 150px;
   height: 150px;
+  box-shadow: 2px 2px 6px var(--color-gray-200);
 }
