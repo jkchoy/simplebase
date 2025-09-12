@@ -13,93 +13,361 @@
 </head>
 
 <body>
+  <div class="container">
 
-  <h1>Simple Base Docs</h1>
+    <h1>Simple Base Docs</h1>
 
-  <h2>Boilerplate!</h2>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto recusandae rerum ex excepturi ipsum iure similique
-    accusamus vero voluptates, veritatis, molestiae esse nulla, ea magnam. Voluptatum mollitia explicabo earum? Dolorum
-    debitis corrupti exercitationem excepturi consequatur recusandae itaque deleniti nam. Ex explicabo harum voluptate
-    nisi culpa quis minima tempora sunt? Debitis.</p>
+    <h2>Boilerplate!</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto recusandae rerum ex excepturi ipsum iure
+      similique
+      accusamus vero voluptates, veritatis, molestiae esse nulla, ea magnam. Voluptatum mollitia explicabo earum?
+      Dolorum
+      debitis corrupti exercitationem excepturi consequatur recusandae itaque deleniti nam. Ex explicabo harum voluptate
+      nisi culpa quis minima tempora sunt? Debitis.</p>
 
-  <h2>CSS Variables</h2>
+    <hr>
 
-  <h3>Colors</h3>
+    <h2>CSS Variables</h2>
 
-  <h4>Primary Blues (Brand Colors)</h4>
+    <h3>Colors</h3>
 
-  <div class="cards">
-    <div class="color-swatch" style="--_swatch-color: #caf0f8;"></div>
-    <div class="color-info">
-      <p>Light Blue <br>
-        --color-blue-100 <br>
-        #caf0f8
-      </p>
+    <h4>Primary Blues (Brand Colors)</h4>
+
+
+    <div class="card">
+      <div class="color-swatch" style="--_swatch-color: #caf0f8;"></div>
+      <div class="color-info">
+        <p>Light Blue <br>
+          --color-blue-100 <br>
+          #caf0f8
+      </div>
     </div>
-  </div>
 
-  <div class="cards">
-    <div class="color-swatch" style="--_swatch-color: #95d5e8;"></div>
-    <div class="color-info">
-      <p>Blue <br>
-        --color-blue-400 <br>
-        #95d5e8
-      </p>
+
+    <div class="card">
+      <div class="color-swatch" style="--_swatch-color: #95d5e8;"></div>
+      <div class="color-info">
+        <p>Blue <br>
+          --color-blue-400 <br>
+          #95d5e8
+      </div>
     </div>
-  </div>
 
-  <div class="cards">
-    <div class="color-swatch" style="--_swatch-color: #053854;"></div>
-    <div class="color-info">
-      <p>Dark Blue <br>
-        --color-blue-900 <br>
-        #053854
-      </p>
+
+    <div class="card">
+      <div class="color-swatch" style="--_swatch-color: #053854;"></div>
+      <div class="color-info">
+        <p>Dark Blue <br>
+          --color-blue-900 <br>
+          #053854
+        </p>
+      </div>
     </div>
-  </div>
 
-  <h4>Secondary (Accent) Colors</h4>
+    <h4>Secondary (Accent) Colors</h4>
 
-  <div class="cards">
-    <div class="color-swatch" style="--_swatch-color: #d8f3dc;"></div>
-    <div class="color-info">
-      <p>Light Green <br>
-        --color-blue-100 <br>
-        #d8f3dc
-      </p>
+    <div class="card">
+      <div class="color-swatch" style="--_swatch-color: #d8f3dc;"></div>
+      <div class="color-info">
+        <p>Light Green <br>
+          --color-green-100 <br>
+          #d8f3dc
+      </div>
     </div>
-  </div>
 
-  <div class="cards">
-    <div class="color-swatch" style="--_swatch-color: #90be6d;"></div>
-    <div class="color-info">
-      <p>Green<br>
-        --color-blue-400 <br>
-        #90be6d
-      </p>
+    <div class="card">
+      <div class="color-swatch" style="--_swatch-color: #90be6d;"></div>
+      <div class="color-info">
+        <p>Green <br>
+          --color-green-400 <br>
+          #90be6d
+      </div>
     </div>
-  </div>
 
-  <div class="cards">
-    <div class="color-swatch" style="--_swatch-color: #1b4332;"></div>
-    <div class="color-info">
-      <p>Dark Green <br>
-        --color-blue-900 <br>
-        #1b4332
-      </p>
+    <div class="card">
+      <div class="color-swatch" style="--_swatch-color: #1b4332;"></div>
+      <div class="color-info">
+        <p>Dark Green <br>
+          --color-green-900 <br>
+          #1b4332
+      </div>
     </div>
+
+    <pre><code>
+
+      :root {
+
+        CSS Color Palette 
+        --color-blue-100: #caf0f8;
+        --color-blue-400: #95d5e8;
+        --color-blue-900: #053854;
+
+        --color-green-100: #d8f3dc;
+        --color-green-400: #90be6d;
+        --color-green-900: #1b4332;
+
+        --color-gray-100: #f8f9fa;
+        --color-gray-400: #ced4da;
+        --color-gray-900: #212529;
+
+        --color-white: #ffffff;
+        --color-black: #000000;
+
+        --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        --font-size-base: 16px;
+        --line-height-base: 1.5;
+
+      }
+
+    </code></pre>
+
+    <pre> this code has no style</pre>
+    <hr>
+
+    <h2>Typography</h2>
+    <pre><code>
+      
+
+    &lt;h1&gt;This is an H1 Header&lt;/h1&gt;
+    &lt;h2&gt;This is an H2 Header &lt;/h2&gt;
+    &lt;h3&gt;This is an H3 Header&lt;/h3&gt;
+    &lt;h4&gt;This is an H4 Header&lt;/h4&gt;
+
+    &lt;p&gt;this is a paragraph. this is an &lt;em&gt;italic text&lt;/em&gt;. this is a &lt;strong&gt;bold text.&lt;/strong&gt; this is an &lt;a
+        href="#"&gt;inline link with some styling&lt;/a&gt;. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
+      recusandae rerum ex
+      excepturi ipsum iure similique
+      accusamus vero voluptates, veritatis, molestiae esse nulla, ea magnam.
+    </p>
+    </code></pre>
+
+
+
+    <hr>
+    <h2>Typography</h2>
+
+    <h1>This is an H1 Header</h1>
+    <h2>This is an H2 Header </h2>
+    <h3>This is an H3 Header</h3>
+    <h4>This is an H4 Header</h4>
+
+    <p>this is a paragraph. this is an <em>italic text</em>. this is a <strong>bold text.</strong> this is an <a
+        href="#">inline link with some styling</a>. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto
+      recusandae rerum ex
+      excepturi ipsum iure similique
+      accusamus vero voluptates, veritatis, molestiae esse nulla, ea magnam.
+    </p>
+
+
+    <hr>
+
+    <h2>Media</h2>
+    <h3>Images</h3>
+    <img src="images-simplebase/placeholder.gif" width="2000" height="2000" alt="place holder 2000x2000">
+
+
+    <hr>
+
+    <h2>Helper Classes</h2>
+
+    <h3>Easy Way to Center Text</h3>
+
+    <p class="text-center">I want this text to be centered.</p>
+
+    <hr>
+
+    <h2>Grid System (12 column)</h2>
+
+    <h2>Grid System (12 column)</h2>
+
+    <div class="row demo">
+      <div class="one-whole">1</div>
+    </div>
+
+    <div class="row demo">
+      <div class="one-half">&frac12;</div>
+      <div class="one-half">&frac12;</div>
+    </div>
+
+    <div class="row demo">
+      <div class="one-third">&frac13;</div>
+      <div class="one-third">&frac13;</div>
+      <div class="one-third">&frac13;</div>
+    </div>
+
+    <div class="row demo">
+      <div class="one-third">&frac13;</div>
+      <div class="two-thirds">&frac23;</div>
+    </div>
+
+    <div class="row demo">
+      <div class="one-fourth">&frac14;</div>
+      <div class="one-fourth">&frac14;</div>
+      <div class="one-fourth">&frac14;</div>
+      <div class="one-fourth">&frac14;</div>
+    </div>
+
+    <div class="row demo">
+      <div class="one-fourth">&frac14;</div>
+      <div class="three-fourths">&frac34;</div>
+    </div>
+
+    <div class="row demo">
+      <div class="one-half centered">&frac12; .centered</div>
+    </div>
+
+    <div class="row demo">
+      <div class="two-thirds centered">&frac23; .centered</div>
+    </div>
+
+    <div class="row demo">
+      <div class="col-1">.col-1</div>
+    </div>
+    <div class="row demo">
+      <div class="col-2">.col-2</div>
+    </div>
+    <div class="row demo">
+      <div class="col-3">.col-3</div>
+    </div>
+    <div class="row demo">
+      <div class="col-4">.col-4</div>
+    </div>
+    <div class="row demo">
+      <div class="col-5">.col-5</div>
+    </div>
+    <div class="row demo">
+      <div class="col-6">.col-6</div>
+    </div>
+    <div class="row demo">
+      <div class="col-7">.col-7</div>
+    </div>
+    <div class="row demo">
+      <div class="col-8">.col-8</div>
+    </div>
+    <div class="row demo">
+      <div class="col-9">.col-9</div>
+    </div>
+    <div class="row demo">
+      <div class="col-10">.col-10</div>
+    </div>
+    <div class="row demo">
+      <div class="col-11">.col-11</div>
+    </div>
+    <div class="row demo">
+      <div class="col-12">.col-12</div>
+    </div>
+
+    <div class="row demo">
+      <div class="col-11 push-1">.push-1</div>
+    </div>
+    <div class="row demo">
+      <div class="col-10 push-2">.push-2</div>
+    </div>
+    <div class="row demo">
+      <div class="col-9 push-3">.push-3</div>
+    </div>
+    <div class="row demo">
+      <div class="col-8 push-4">.push-4</div>
+    </div>
+    <div class="row demo">
+      <div class="col-7 push-5">.push-5</div>
+    </div>
+    <div class="row demo">
+      <div class="col-6 push-6">.push-6</div>
+    </div>
+    <div class="row demo">
+      <div class="col-5 push-7">.push-7</div>
+    </div>
+    <div class="row demo">
+      <div class="col-4 push-8">.push-8</div>
+    </div>
+    <div class="row demo">
+      <div class="col-3 push-9">.push-9</div>
+    </div>
+    <div class="row demo">
+      <div class="col-2 push-10">.push-10</div>
+    </div>
+    <div class="row demo">
+      <div class="col-1 push-11">.push-11</div>
+    </div>
+
+
+    <pre><code>
+      &lt;div class="row"&gt;
+          &lt;div class="one-half"&gt;&frac12;&lt;/div&gt;
+          &lt;div class="one-half"&gt;&frac12;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="row"&gt;
+          &lt;div class="one-third"&gt;&frac13;&lt;/div&gt;
+          &lt;div class="one-third"&gt;&frac13;&lt;/div&gt;
+          &lt;div class="one-third"&gt;&frac13;&lt;/div&gt;  
+      &lt;/div&gt;
+              </code></pre>
+
+
+
+    <div class="row">
+
+      <div class="one-half">
+        <img src="images-simplebase/placeholder.gif" width="2000" height="2000" alt="placeholder">
+      </div>
+      <div class="one-half">
+        <h1>Image on the left. Text on the&nbsp;right.</h1>
+        <p>this column is rendering via the default normal flow. Lorem, ipsum dolor sit amet consectetur adipisicing
+          elit. Hic, neque quisquam! Laudantium eius a officiis sapiente? Natus quas aliquid ipsa.</p>
+      </div>
+
+    </div>
+
+    <div class="row swapped">
+
+      <div class="one-half">
+        <img src="images-simplebase/placeholder.gif" width="2000" height="2000" alt="placeholder">
+      </div>
+      <div class="one-half">
+        <h1>Image on the right. Text on the&nbsp;left.</h1>
+        <p>this column is rendering via the default normal flow. Lorem, ipsum dolor sit amet consectetur adipisicing
+          elit. Hic, neque quisquam! Laudantium eius a officiis sapiente? Natus quas aliquid ipsa.</p>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="one-half centered">
+        <img src="images-simplebase/placeholder.gif" width="2000" height="2000" alt="placeholder">
+        <h1>A Centered Column</h1>
+        <p>this column is rendering via the default normal flow. Lorem, ipsum dolor sit amet consectetur adipisicing
+          elit. Hic, neque quisquam! Laudantium eius a officiis sapiente? Natus quas aliquid ipsa.</p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-5 push-1">
+        <img src="images-simplebase/placeholder.gif" width="2000" height="2000 alt=" Placeholder image" width="2000"
+          height="1000">
+        <h2>Col-5 Column with a Push-1</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident necessitatibus quod quae quasi officiis
+          assumenda natus quis error, iste quo?</p>
+      </div>
+      <div class="col-5">
+        <img src="images-simplebase/placeholder.gif" width="2000" height="2000 alt=" Placeholder image" width="2000"
+          height="1000">
+        <h2>Col-5 Column</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident necessitatibus quod quae quasi officiis
+          assumenda natus quis error, iste quo?</p>
+      </div>
+    </div>
+
+    <pre><code>
+&lt;div class="row swapped"&gt;
+...
+&lt;/div&gt;
+  </code></pre>
+
   </div>
-
-
-  <h1>Typography</h1>
-
-  <p>this is a paragraph. this is an <em>italic text</em>. this is a <strong>bold text.</strong> this is an <a
-      href="#">inline link</a>. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto recusandae rerum ex
-    excepturi ipsum iure similique
-    accusamus vero voluptates, veritatis, molestiae esse nulla, ea magnam.
-  </p>
-
-
+  </div>
   <!-- MAIN JS -->
   <script src="js/script.js"></script>
 </body>
