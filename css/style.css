@@ -132,7 +132,7 @@ img {
 /* GLOBAL RESET */
 
 /* remove the default 8px margin on body */
-bodY {
+body {
   margin: 0;
 }
 
