@@ -13,11 +13,19 @@ CSS TABLE OF CONTENTS
     # GLOBAL MEDIA
     # GLOBAL HELPERS
     # GLOBAL RESET
+      # ENABLE SMOOTH SCROLLING
 
     ......
+
 #LAYOUT
     # CONTAINER
     # GRID (row & column)
+
+#SITE STRUCTURE
+    # HEADER
+    # MAIN
+        # SECTION
+    # FOOTER
 
 # UI COMPONENTS
     # CARDS
@@ -25,7 +33,9 @@ CSS TABLE OF CONTENTS
     # CODE BLOCKS
      
 
-
+# CUSTOME SITE STYLING (Opinionated)
+    # BODY GIRD LAYOUT SYSTEM (header, main, and footer)
+    
 
 
 ---------------------------------------*/
@@ -63,6 +73,9 @@ CSS TABLE OF CONTENTS
   --color-body-text: var(--color-black-80);
   --color-body-text-dark: var(--color-black);
 
+  --color-siteheader-background: var(--color-blue-400);
+  --color-sitefooter-background: var(--color-blue-400);
+  --color-hero-background: var(--color-blue-100);
 
 
   --color-primary: var(--color-blue-400);
@@ -110,45 +123,14 @@ h3 {
 
 }
 
-
-/* GLOBAL MEDIA */
-
-/* images responsive on small screens
-do not stretch too large (beyond the orgianl) on large screen */
-img {
-  max-width: 100%;
-  height: auto;
-
-}
-
-
-
-/* GLOBAL HELPERS */
-.text-center {
-  text-align: center;
-}
-
-
-/* GLOBAL RESET */
-
-/* remove the default 8px margin on body */
-body {
-  margin: 0;
-}
-
-/* set all elements to box sizing border box */
-
-* {
-  box-sizing: border-box;
-}
-
-
 /* LINKS */
 a {
-  color: var(--color-primary);
+  color: var(--color-secondary);
+
+  /* STYLE THE UNDERLINE */
   text-decoration-color: var(--color-primary-dark);
   text-underline-offset: .135em;
-  text-decoration-thickness: .03em;
+  text-decoration-thickness: .05em;
 }
 
 a:hover {
@@ -169,6 +151,42 @@ h4 {
   font-family: var(--font-headings);
 }
 
+
+/* GLOBAL MEDIA */
+
+/* images responsive on small screens
+do not stretch too large (beyond the orgianl) on large screen */
+img {
+  max-width: 100%;
+  height: auto;
+
+}
+
+/* GLOBAL HELPERS */
+.text-center {
+  text-align: center;
+
+}
+
+
+/* GLOBAL RESET */
+
+/* remove the default 8px margin on body */
+body {
+  margin: 0;
+}
+
+x
+/* set all elements to box sizing border box */
+
+* {
+  box-sizing: border-box;
+}
+
+/* SMOOTH SCROLLING */
+html {
+  scroll-behavior: smooth;
+}
 
 
 /* -------------------------------------
@@ -350,6 +368,35 @@ h4 {
 
 }
 
+/* ------------------
+  STIE STURCTURE 
+--------------------- */
+
+/* SITE STRUCTURE */
+.site-header {
+  background-color: var(--color-siteheader-background);
+}
+
+/* SITE MAIN */
+.site-main {
+  background-color: transparent;
+}
+
+section {
+  margin-block: var(--unit-xl);
+}
+
+.hero {
+  background-color: var(--color-hero-background);
+  padding: var(--unit-xl) 0;
+  text-align: center;
+}
+
+/* SITE FOOTER */
+.site-footer {
+  background-color: var(--color-sitefooter-background);
+  padding: var(--unit-s);
+}
 
 
 /* ------------------
@@ -389,4 +436,18 @@ pre:has(code) {
   /* overflow-x: auto; */
   white-space: pre-wrap;
   /* wrap long lines */
+}
+
+
+/* ------------------
+  CUSTOME SITE STYLING
+--------------------- */
+
+/* PUSH THE FOOTER TO THE BOTTOM TO DEFAULT */
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100svh;
+  /* margin: 0; */
 }
