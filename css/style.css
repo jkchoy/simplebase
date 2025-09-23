@@ -56,7 +56,9 @@ CSS TABLE OF CONTENTS
   --color-black: #000;
   --color-black: rgba(0, 0, 0, 0.8);
 
+  --color-gray-100: rgb(191, 186, 186);
   --color-gray-200: rgba(0, 0, 0, 0.2);
+
 
   --color-blue-100: #caf0f8;
   --color-blue-400: #95d5e8;
@@ -73,7 +75,7 @@ CSS TABLE OF CONTENTS
   --color-body-text: var(--color-black-80);
   --color-body-text-dark: var(--color-black);
 
-  --color-siteheader-background: var(--color-blue-400);
+  --color-siteheader-background: var(--color-black);
   --color-sitefooter-background: var(--color-blue-400);
   --color-hero-background: var(--color-blue-100);
 
@@ -137,6 +139,10 @@ a:hover {
   color: var(--color-primary-dark);
 }
 
+.site-header a:hover {
+  color: var(--color-white);
+}
+
 /* GLOBAL TYPOHRAPHY */
 body {
   font-family: var(--font-body);
@@ -166,6 +172,16 @@ img {
 .text-center {
   text-align: center;
 
+}
+
+
+/* HIDE CONTENT VISUALLY (BUT KEEP FOR SEO AND ACCESSIBILITY) */
+.hide-visually,
+.visaully-hide,
+.screen-reader-only {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
 }
 
 
@@ -214,7 +230,8 @@ html {
   margin-block-end: var(--grid-gap);
 }
 
-@media (min-width: 768px) {
+/* MEW WIDTH SYNTAX (updated from min-width: 768; */
+@media (width >=768px) {
 
   .row {
     display: grid;
@@ -373,9 +390,86 @@ html {
 --------------------- */
 
 /* SITE STRUCTURE */
+
+/* SITE HEADER */
 .site-header {
   background-color: var(--color-siteheader-background);
+
+
+  /* DISPLAY LOGO ON LEFT AND NAV ON RIGHT */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--unit-m);
+  flex-wrap: wrap;
 }
+
+
+/* REMOVE HEADER PADDING IF IT HAS A CONTAINER */
+/* .site-header:has(.container) {
+  padding: 0;
+} */
+
+/* SITE MAIN */
+.site-header .site-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: var(--unit-m);
+  flex-wrap: wrap;
+
+}
+
+.site-header .site-nav a {
+  text-decoration: none;
+  display: block;
+  padding: var(--unit-s);
+  font-weight: bold;
+  padding-block-start: calc(var(--unit-xs) + .1em);
+}
+
+
+
+
+/* LOGO STYLING */
+.site-header .logo {
+  display: flex;
+  align-items: center;
+  gap: var(--unit-s);
+  padding: var(--unit-s);
+
+}
+
+.site-header .logo svg {
+  max-width: 50px;
+  min-width: 50px;
+}
+
+.site-header .logo h1 {
+  font-size: 1.3125rem;
+  margin: 0;
+}
+
+.site-header .logo a {
+  text-decoration: none;
+
+}
+
+
+/* MAIN SITE NAV */
+
+.site-header .site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--unit-m);
+  justify-content: center;
+}
+
+
+
 
 /* SITE MAIN */
 .site-main {
@@ -388,7 +482,7 @@ section {
 
 .hero {
   background-color: var(--color-hero-background);
-  padding: var(--unit-xl) 0;
+  padding: var(--unit-3xl) 0;
   text-align: center;
 }
 
@@ -396,6 +490,13 @@ section {
 .site-footer {
   background-color: var(--color-sitefooter-background);
   padding: var(--unit-s);
+}
+
+
+/* REMOVE FOOTER PADDING IF IT HAS A CONTAINER */
+.site-footer:has(.container) {
+  padding-inline: 0;
+
 }
 
 
