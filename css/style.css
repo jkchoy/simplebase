@@ -1,116 +1,112 @@
-/* MAIN CSS */
+/* --------------------
 
+TABLE OF CONTENTS 
 
-/* -------------------------------------
-
-CSS TABLE OF CONTENTS
-
-
-# GLOBAL
-    # DEFINEGLOBAL VARIABLES (CUSTOM PROPERTIES)
+# GLOBALS
+    # DEFINE GLOBAL VARIABLES (CUSTOM PROPERTIES)
     # SET GLOBAL COLORS
     # SET GLOBAL TYPOGRAPHY
-    # GLOBAL MEDIA
+    # GLOBAL MEDIA (images, video, svg)
     # GLOBAL HELPERS
-    # GLOBAL RESET
-      # ENABLE SMOOTH SCROLLING
+    # GLOBAL RESETS
+        # ENABLE SMOOTH SCROLLING
 
-    ......
-
-#LAYOUT
+# LAYOUT
     # CONTAINER
-    # GRID (row & column)
+    # GRID SYSTEM (12 column)
 
-#SITE STRUCTURE
+# SITE STRUCTURE
     # HEADER
+        # LOGO
+        # SITE NAV
     # MAIN
-        # SECTION
+        # SECTIONS
     # FOOTER
 
 # UI COMPONENTS
+    # BUTTONS
     # CARDS
-    # HR (Horizontal Rule)
+    # HR (HORIZONTAL RULE)
     # CODE BLOCKS
-     
 
-# CUSTOME SITE STYLING (Opinionated)
-    # BODY GIRD LAYOUT SYSTEM (header, main, and footer)
-    
+    (WE WILL ADD MORE HERE)
 
+# CUSTOM SITE STYLING (OPINIONATED)
+    # BODY GRID LAYOUT SYSTEM (header, main, and footer)
+    # CUSTOM HERO STYLING
+    # CUSTOM PAGE LAYOUT - 2 COLUMNS: ASIDE + MAIN CONTENT
+    # STICKYBOX
 
----------------------------------------*/
+----------------------- */
 
-/* -------------------------------------
+/* ------------------
+        GLOBALS 
+--------------------- */
 
-             GLOBALS 
-
-----------------------------------------*/
-
-/* SET GLOBAL VARIABLES */
-
+/* DEFINE GLOBAL VARIABLES */
 :root {
 
   /* DEFINE BASE COLORS */
   --color-white: #fff;
-  --color-coral: #fbd1d1;
   --color-black: #000;
-  --color-black: rgba(0, 0, 0, 0.8);
+  --color-black-80: rgb(0 0 0 / .8);
 
-  --color-gray-100: rgb(191, 186, 186);
-  --color-gray-200: rgba(0, 0, 0, 0.2);
-
+  --color-grey-200: rgb(0 0 0 / .2);
 
   --color-blue-100: #caf0f8;
-  --color-blue-400: #95d5e8;
-  --color-blue-900: #053854;
+  --color-blue-400: #3170ce;
+  --color-blue-900: #061a9e;
 
-  --color-green-100: #d8f3dc;
-  --color-green-400: #90be6d;
-  --color-green-900: #1b4332;
+  --color-purple-200: #dcbcf1;
+  --color-purple-400: #b65ded;
+  --color-purple-600: #860dba;
+  --color-purple-900: #4b0d65;
 
+  --color-brown-100: #f4e1d2;
+  --color-brown-200: #e6b89c;
+  --color-brown-400: #a0522d;
+  --color-brown-600: #7b3f1a;
+  --color-brown-900: #4b2e1e;
 
-
-  /* DEFINE SEMATNTIC COLORS */
-  --color-body-background: var(--color-coral);
+  /* DEFINE SEMANTIC COLORS */
+  --color-body-background: var(--color-white);
   --color-body-text: var(--color-black-80);
   --color-body-text-dark: var(--color-black);
 
-  --color-siteheader-background: var(--color-black);
-  --color-sitefooter-background: var(--color-blue-400);
-  --color-hero-background: var(--color-blue-100);
-
-
   --color-primary: var(--color-blue-400);
   --color-primary-dark: var(--color-blue-900);
-  --color-primary-light: var(--color-blue-100);
-  --color-secondary: var(--color-green-400);
+  --color-secondary: var(--color-purple-400);
 
-  /* BORDER */
+  /* ACTION COLORS */
+  --color-links: var(--color-purple-400);
+  --color-links-hover: var(--color-brown-400);
+  --color-links-light: var(--color-purple-200);
 
-  --color-border: var(--color-gray-200);
+  --color-siteheader-background: transparent;
+  --color-sitefooter-background: transparent;
+  --color-hero-background: var(--color-blue-100);
+
+  /* BORDERS */
+  --color-border: var(--color-grey-200);
   --border-radius: 5px;
   --border-thickness: .5px;
 
-
   /* SIZING UNITS */
-  --unit-2xs: 0.25em;
-  --unit-xs: 0.5em;
-  --unit-s: 1em;
-  --unit-m: 1.5em;
-  --unit-l: 2em;
-  --unit-xl: 3em;
-  --unit-2xl: 4em;
-  --unit-3xl: 6em;
-
+  --unit-2xs: 0.25rem;
+  --unit-xs: 0.5rem;
+  --unit-s: 1rem;
+  --unit-m: 1.5rem;
+  --unit-l: 2rem;
+  --unit-xl: 3rem;
+  --unit-2xl: 4rem;
+  --unit-3xl: 6rem;
   --container-width: 1100px;
 
   /* GLOBAL FONTS */
-  --font-body: ui-system, Helvetica, Arial, sans-serif;
-  --font-heading: Gerogia, Times, 'Times New Roman', serif;
-
+  --font-body: system-ui, Helvetica, arial, sans-serif;
+  --font-headings: Georgia, Times, "Times New Roman", serif;
 
 }
-
 
 /* SET GLOBAL COLORS */
 body {
@@ -118,29 +114,39 @@ body {
   color: var(--color-body-text);
 }
 
+/* HEADINGS */
 h1,
 h2,
 h3 {
   color: var(--color-body-text-dark);
 
+  /* ADD SUPPORT FOR TEXTWRAP BALANCE */
+  text-wrap: balance;
+}
+
+/* LIMIT THE NUMBER OF CHARACTERS PER LINE FOR ALL PARAGRAPHS */
+p {
+  max-inline-size: 66ch;
+}
+
+/* REMOVE WIDOWS FOR ALL PARAGRAPHS AND LIST ITEMS*/
+p,
+li {
+  text-wrap: pretty;
 }
 
 /* LINKS */
 a {
-  color: var(--color-secondary);
+  color: var(--color-links);
 
   /* STYLE THE UNDERLINE */
-  text-decoration-color: var(--color-primary-dark);
+  text-decoration-color: var(--color-links-light);
   text-underline-offset: .135em;
-  text-decoration-thickness: .05em;
+  text-decoration-thickness: .1em;
 }
 
 a:hover {
-  color: var(--color-primary-dark);
-}
-
-.site-header a:hover {
-  color: var(--color-white);
+  color: var(--color-links-hover);
 }
 
 /* GLOBAL TYPOHRAPHY */
@@ -157,44 +163,45 @@ h4 {
   font-family: var(--font-headings);
 }
 
-
 /* GLOBAL MEDIA */
 
-/* images responsive on small screens
-do not stretch too large (beyond the orgianl) on large screen */
+/* IMAGES (Responsive)
+ Responsive on small screens
+ Do not stretch too large (beyond the orignal)
+ on large screens */
 img {
   max-width: 100%;
   height: auto;
-
 }
 
 /* GLOBAL HELPERS */
-.text-center {
-  text-align: center;
 
+.text-centered {
+  text-align: center;
 }
 
+/* CENTER PARAGRAPHS INSIDE CENTERED PARENTS */
+.text-centered p {
+  margin-inline: auto;
+}
 
 /* HIDE CONTENT VISUALLY (BUT KEEP FOR SEO AND ACCESSIBILITY) */
 .hide-visually,
-.visaully-hide,
+.visually-hidden,
 .screen-reader-only {
   position: absolute;
   top: -9999px;
   left: -9999px;
 }
 
+/* GLOBAL RESETS */
 
-/* GLOBAL RESET */
-
-/* remove the default 8px margin on body */
+/* Remove the default 8pm margin on body */
 body {
   margin: 0;
 }
 
-x
-/* set all elements to box sizing border box */
-
+/* Set all elements to box sizing border box */
 * {
   box-sizing: border-box;
 }
@@ -204,21 +211,24 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ADD OFFSET TO ALL INLINE ANCHOR LINKS */
+:target {
+  scroll-margin-top: var(--unit-m);
+}
 
-/* -------------------------------------
 
-                LAYOUT
-
-----------------------------------------*/
+/* ------------------
+      LAYOUT 
+--------------------- */
 
 /* CONTAINER */
+
 .container {
-  max-width: 1100px;
+  max-width: var(--container-width);
   margin-inline: auto;
   padding-inline: var(--unit-s);
-  /* margin: 0 auto;  (same as the code above*/
-  /* border: 1px solid red; */
 }
+
 
 /* GRID SYSTEM (12 column) */
 
@@ -230,7 +240,7 @@ html {
   margin-block-end: var(--grid-gap);
 }
 
-/* MEW WIDTH SYNTAX (updated from min-width: 768; */
+/* NEW width SYNTAX (updated from min-width: 768px)  */
 @media (width >=768px) {
 
   .row {
@@ -377,73 +387,53 @@ html {
   }
 }
 
+
 /* FOR DEMO PURPOSES ONLY */
 .row.demo>* {
-  background-color: var(--color-primary-light);
+  background-color: var(--color-brown-100);
   text-align: center;
   padding: var(--unit-s);
-
 }
 
 /* ------------------
-  STIE STURCTURE 
+  SITE STRUCTURE 
 --------------------- */
-
-/* SITE STRUCTURE */
 
 /* SITE HEADER */
 .site-header {
   background-color: var(--color-siteheader-background);
-
+  padding-block: var(--unit-s);
+  padding-inline: var(--unit-s);
 
   /* DISPLAY LOGO ON LEFT AND NAV ON RIGHT */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: var(--unit-m);
+  gap: var(--unit-s);
   flex-wrap: wrap;
 }
-
 
 /* REMOVE HEADER PADDING IF IT HAS A CONTAINER */
-/* .site-header:has(.container) {
-  padding: 0;
-} */
-
-/* SITE MAIN */
-.site-header .site-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  gap: var(--unit-m);
-  flex-wrap: wrap;
-
+.site-header:has(.container) {
+  padding-inline: 0;
 }
-
-.site-header .site-nav a {
-  text-decoration: none;
-  display: block;
-  padding: var(--unit-s);
-  font-weight: bold;
-  padding-block-start: calc(var(--unit-xs) + .1em);
-}
-
-
-
 
 /* LOGO STYLING */
 .site-header .logo {
   display: flex;
   align-items: center;
   gap: var(--unit-s);
-  padding: var(--unit-s);
-
 }
 
 .site-header .logo svg {
-  max-width: 50px;
+  max-height: 50px;
   min-width: 50px;
+}
+
+/* CHRS COYIER'S FIX FOR GAP UNDR INLINE IMAGES AND SVG*/
+.site-header .logo img,
+.site-header .logo svg {
+  vertical-align: middle;
 }
 
 .site-header .logo h1 {
@@ -453,59 +443,81 @@ html {
 
 .site-header .logo a {
   text-decoration: none;
-
 }
-
 
 /* MAIN SITE NAV */
-
 .site-header .site-nav ul {
-  list-style: none;
   margin: 0;
   padding: 0;
+  list-style: none;
   display: flex;
-  gap: var(--unit-m);
-  justify-content: center;
+  gap: var(--unit-s);
+  flex-wrap: wrap;
 }
 
-
-
+.site-header .site-nav a {
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  padding: var(--unit-xs);
+  padding-block-start: calc(var(--unit-xs) + .1em);
+}
 
 /* SITE MAIN */
 .site-main {
   background-color: transparent;
 }
 
+/* STYLING FOR ALL SECTIONS */
 section {
-  margin-block: var(--unit-xl);
+  padding-block: var(--unit-2xl);
 }
 
 .hero {
   background-color: var(--color-hero-background);
-  padding: var(--unit-3xl) 0;
-  text-align: center;
+  padding-block: var(--unit-3xl);
+  padding-inline: var(--unit-s);
 }
+
+.hero:has(.container) {
+  padding-inline: 0;
+}
+
 
 /* SITE FOOTER */
 .site-footer {
   background-color: var(--color-sitefooter-background);
-  padding: var(--unit-s);
+  padding-block: var(--unit-2xl);
+  padding-inline: var(--unit-s);
 }
-
 
 /* REMOVE FOOTER PADDING IF IT HAS A CONTAINER */
 .site-footer:has(.container) {
   padding-inline: 0;
-
 }
-
 
 /* ------------------
   UI COMPONENTS 
 --------------------- */
 
-/* CARDS */
+/* BUTTONS */
+.button {
+  background-color: var(--color-links);
+  color: var(--color-white);
+  padding: var(--unit-s) var(--unit-m);
+  margin-block: var(--unit-2xs);
+  display: inline-block;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  line-height: 1;
+}
 
+.button:hover {
+  background-color: var(--color-links-hover);
+  color: var(--color-white);
+}
+
+/* CARDS */
 .card {
   border: var(--border-thickness) solid var(--color-border);
   display: inline-block;
@@ -527,28 +539,70 @@ hr {
   margin: var(--unit-xl) 0;
 }
 
-/* CODE BLOCK */
-
+/* Code Blocks */
 pre:has(code) {
-  background-color: var(--color-black);
+  background-color: var(--color-blue-900);
   color: var(--color-white);
-  padding: var(--unit-m);
+  padding-inline: var(--unit-m);
   border-radius: var(--border-radius);
-  /* overflow-x: auto; */
   white-space: pre-wrap;
-  /* wrap long lines */
 }
 
 
 /* ------------------
-  CUSTOME SITE STYLING
+  CUSTOM SITE STYLING 
 --------------------- */
 
-/* PUSH THE FOOTER TO THE BOTTOM TO DEFAULT */
-
+/* PUSH THE FOOTER TO THE BOTTOM BY DEFAULT */
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100svh;
-  /* margin: 0; */
+}
+
+/* TO FIX OVERFLOW WORD BREAK */
+body>* {
+  min-width: 0;
+}
+
+/* NUDGE THE NAV ITEMS DOWN TO ALIGN WITH IMAGE LOGO TEXT */
+.site-header .site-nav a {
+  padding-block-start: calc(var(--unit-xs) + .35em);
+}
+
+/* CUSTOM HERO STYLING */
+.hero h1 {
+  font-size: clamp(2.5em, 4vw, 4em);
+  margin-block: 0;
+  overflow-wrap: break-word;
+}
+
+.hero p {
+  text-wrap: balance;
+}
+
+/* CUSTOM PAGE LAYOUT - 2 COLUMNS: ASIDE + MAIN CONTENT */
+
+
+@media (width >=768px) {
+
+  .pagelayout-wrapper-twocolumn {
+    display: flex;
+    gap: var(--unit-l);
+  }
+
+  .pagesection-aside {
+    width: 25%;
+  }
+
+  .pagesection-maincontent {
+    width: 75%;
+  }
+
+}
+
+/* STICKYBOX */
+.stickybox {
+  position: sticky;
+  top: var(--unit-m);
 }
