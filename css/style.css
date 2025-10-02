@@ -524,7 +524,7 @@ html {
 }
 
 /* MAIN SITE NAV */
-.site-header .site-nav ul {
+.site-nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -533,7 +533,7 @@ html {
   flex-wrap: wrap;
 }
 
-.site-header .site-nav a {
+.site-nav a {
   text-decoration: none;
   font-weight: bold;
   display: block;
@@ -541,37 +541,108 @@ html {
   padding-block-start: calc(var(--unit-xs) + .1em);
 }
 
-/* SITE MAIN */
-.site-main {
+/* SHOW MENU BUTTON ON HIGHER LAYER WHEN NAV IS OPEN */
+.site-nav .menubutton {
+  position: relative;
+  z-index: 100;
   background-color: transparent;
-}
-
-/* STYLING FOR ALL SECTIONS */
-section {
-  padding-block: var(--unit-2xl);
-}
-
-.hero {
-  background-color: var(--color-hero-background);
-  padding-block: var(--unit-3xl);
-  padding-inline: var(--unit-s);
-}
-
-.hero:has(.container) {
-  padding-inline: 0;
+  border: 1px solid var(--color-border);
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: bold;
+  padding: var(--unit-xs);
 }
 
 
-/* SITE FOOTER */
-.site-footer {
-  background-color: var(--color-sitefooter-background);
-  padding-block: var(--unit-2xl);
-  padding-inline: var(--unit-s);
+/* SMALL SCREENS: SHOW MENU BUTTON, HIDE NAV */
+.site-nav .menubutton {
+  display: block;
 }
 
-/* REMOVE FOOTER PADDING IF IT HAS A CONTAINER */
-.site-footer:has(.container) {
-  padding-inline: 0;
+.site-nav ul {
+  display: none;
+}
+
+
+
+/* BIG SCREENS: HIDE MENU BUTTON, SHOW NAV */
+@media (width >=768px) {
+  .site-nav .menubutton {
+    display: none;
+  }
+
+  .site-nav ul {
+    display: flex;
+  }
+}
+
+
+/* SMALL SCREENS ONLY: ENABLE OVERLAY NAV */
+@media (width <768px) {
+
+  .site-nav[data-menustate] ul {
+    display: block;
+    align-content: center;
+    justify-content: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-blue-400);
+    transition: translate 0.3s ease-out;
+  }
+
+  .site-nav[data-menustate] a {
+    color: var(--color-body-text-dark);
+  }
+
+  .site-nav[data-menustate="open"] ul {
+    translate: 0 0;
+  }
+
+  .site-nav[data-menustate="closed"] ul {
+    translate: 0 -100%;
+  }
+
+  .site-nav[data-menubutton="oepn"].simple-navicon rect {
+    fill: var(--color-white)
+  }
+
+
+  /* SITE MAIN */
+  .site-main {
+    background-color: transparent;
+  }
+
+  /* STYLING FOR ALL SECTIONS */
+  section {
+    padding-block: var(--unit-2xl);
+  }
+
+  .hero {
+    background-color: var(--color-hero-background);
+    padding-block: var(--unit-3xl);
+    padding-inline: var(--unit-s);
+  }
+
+  .hero:has(.container) {
+    padding-inline: 0;
+  }
+
+
+  /* SITE FOOTER */
+  .site-footer {
+    background-color: var(--color-sitefooter-background);
+    padding-block: var(--unit-2xl);
+    padding-inline: var(--unit-s);
+  }
+
+  /* REMOVE FOOTER PADDING IF IT HAS A CONTAINER */
+  .site-footer:has(.container) {
+    padding-inline: 0;
+  }
+
 }
 
 /* ------------------
