@@ -70,8 +70,8 @@ TABLE OF CONTENTS
 
   /* DEFINE SEMANTIC COLORS */
   --color-body-background: var(--color-white);
-  --color-body-text: var(--color-black-80);
-  --color-body-text-dark: var(--color-black);
+  --color-body-text: var(--color-black);
+  --color-body-text-dark: var(--color-blue-400);
 
   --color-primary: var(--color-blue-400);
   --color-primary-dark: var(--color-blue-900);
@@ -82,9 +82,12 @@ TABLE OF CONTENTS
   --color-links-hover: var(--color-brown-400);
   --color-links-light: var(--color-purple-200);
 
+  /* SECTION SPECIFIC */
   --color-siteheader-background: transparent;
-  --color-sitefooter-background: transparent;
+  --color-siteheader-links: var(--color-black-80);
+  --color-siteheader-hover: var(--color-blue-400);
   --color-hero-background: var(--color-blue-100);
+  --color-sitefooter-background: transparent;
 
   /* BORDERS */
   --color-border: var(--color-grey-200);
@@ -483,10 +486,11 @@ html {
   padding-block: var(--unit-s);
   padding-inline: var(--unit-s);
 
+
   /* DISPLAY LOGO ON LEFT AND NAV ON RIGHT */
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
   gap: var(--unit-s);
   flex-wrap: wrap;
 }
@@ -524,6 +528,7 @@ html {
 }
 
 /* MAIN SITE NAV */
+
 .site-nav ul {
   margin: 0;
   padding: 0;
@@ -534,6 +539,7 @@ html {
 }
 
 .site-nav a {
+  color: var(--color-siteheader-links);
   text-decoration: none;
   font-weight: bold;
   display: block;
@@ -541,18 +547,21 @@ html {
   padding-block-start: calc(var(--unit-xs) + .1em);
 }
 
+.site-nav a:hover {
+  color: var(--color-siteheader-hover);
+}
+
 /* SHOW MENU BUTTON ON HIGHER LAYER WHEN NAV IS OPEN */
 .site-nav .menubutton {
   position: relative;
   z-index: 100;
-  background-color: transparent;
-  border: 1px solid var(--color-border);
+  border: none;
   font-size: inherit;
   font-family: inherit;
-  font-weight: bold;
   padding: var(--unit-xs);
+  margin-block-start: var(--unit-xs);
+  background-color: transparent;
 }
-
 
 /* SMALL SCREENS: SHOW MENU BUTTON, HIDE NAV */
 .site-nav .menubutton {
@@ -563,9 +572,7 @@ html {
   display: none;
 }
 
-
-
-/* BIG SCREENS: HIDE MENU BUTTON, SHOW NAV */
+/* BIG SCREENS:  HIDE MENU BUTTON, SHOW NAV*/
 @media (width >=768px) {
   .site-nav .menubutton {
     display: none;
@@ -576,12 +583,11 @@ html {
   }
 }
 
-
 /* SMALL SCREENS ONLY: ENABLE OVERLAY NAV */
-@media (width <768px) {
+@media (width < 768px) {
 
   .site-nav[data-menustate] ul {
-    display: block;
+    display: grid;
     align-content: center;
     justify-content: center;
     position: fixed;
@@ -594,7 +600,7 @@ html {
   }
 
   .site-nav[data-menustate] a {
-    color: var(--color-body-text-dark);
+    color: var(--color-white);
   }
 
   .site-nav[data-menustate="open"] ul {
@@ -602,47 +608,84 @@ html {
   }
 
   .site-nav[data-menustate="closed"] ul {
-    translate: 0 -100%;
+    translate: 100% 0;
   }
 
-  .site-nav[data-menubutton="oepn"].simple-navicon rect {
-    fill: var(--color-white)
+  /* ENABLE SVG ANIMATION FOR THE NAVICON */
+  .site-nav[data-menustate] .simple-navicon rect {
+    transition: all .3s ease-out
   }
 
-
-  /* SITE MAIN */
-  .site-main {
-    background-color: transparent;
+  /* CHANGE COLOR OF THE SVG NAVICON WHEN MENU IS OPEN */
+  .site-nav[data-menustate="open"] .simple-navicon rect {
+    fill: var(--color-white);
   }
 
-  /* STYLING FOR ALL SECTIONS */
-  section {
-    padding-block: var(--unit-2xl);
+  /* ANIMATE NAVICON LINES TO AN X WHEN OPEN */
+  .site-nav .simple-navicon {
+    display: block;
+
   }
 
-  .hero {
-    background-color: var(--color-hero-background);
-    padding-block: var(--unit-3xl);
-    padding-inline: var(--unit-s);
+  .site-nav .simple-navicon rect {
+    transform-origin: center;
+    width: 100%;
   }
 
-  .hero:has(.container) {
-    padding-inline: 0;
+  .site-nav[data-menustate="open"] .simple-navicon {
+    position: fixed;
+    top: calc(var(--unit-s) + var(--unit-s));
+    right: calc(var(--unit-s) + var(--unit-xs));
   }
 
-
-  /* SITE FOOTER */
-  .site-footer {
-    background-color: var(--color-sitefooter-background);
-    padding-block: var(--unit-2xl);
-    padding-inline: var(--unit-s);
+  .site-nav[data-menustate="open"] .simple-navicon-top {
+    rotate: 45deg;
+    translate: -21% 24%;
   }
 
-  /* REMOVE FOOTER PADDING IF IT HAS A CONTAINER */
-  .site-footer:has(.container) {
-    padding-inline: 0;
+  .site-nav[data-menustate="open"] .simple-navicon-middle {
+    opacity: 0;
   }
 
+  .site-nav[data-menustate="open"] .simple-navicon-bottom {
+    rotate: -45deg;
+    translate: -21% -24%;
+  }
+
+}
+
+
+/* SITE MAIN */
+.site-main {
+  background-color: transparent;
+}
+
+/* STYLING FOR ALL SECTIONS */
+section {
+  padding-block: var(--unit-2xl);
+}
+
+.hero {
+  background-color: var(--color-hero-background);
+  padding-block: var(--unit-3xl);
+  padding-inline: var(--unit-s);
+}
+
+.hero:has(.container) {
+  padding-inline: 0;
+}
+
+
+/* SITE FOOTER */
+.site-footer {
+  background-color: var(--color-sitefooter-background);
+  padding-block: var(--unit-2xl);
+  padding-inline: var(--unit-s);
+}
+
+/* REMOVE FOOTER PADDING IF IT HAS A CONTAINER */
+.site-footer:has(.container) {
+  padding-inline: 0;
 }
 
 /* ------------------
@@ -690,7 +733,7 @@ hr {
 
 /* Code Blocks */
 pre:has(code) {
-  background-color: var(--color-blue-900);
+  background-color: var(--color-black);
   color: var(--color-white);
   padding-inline: var(--unit-m);
   border-radius: var(--border-radius);
@@ -751,7 +794,10 @@ body>* {
 }
 
 /* STICKYBOX */
-.stickybox {
-  position: sticky;
-  top: var(--unit-m);
+/* NOTE NEEDED ON SMALL SCREENS, SO IT IS SET INSIDE OF A MEDIA QUERY SO IT ALLOWS THE OVERLAY MENU TO RENDER ON TOP ON SMALL SCREENS */
+@media (width >=768px) {
+  .stickybox {
+    position: sticky;
+    top: var(--unit-m);
+  }
 }
